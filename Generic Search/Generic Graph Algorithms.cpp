@@ -19,15 +19,6 @@ struct DFS_data
 	int flag[MAX], start[MAX], end[MAX];
 };
 
-/*void print(int arr[], int n)
-{
-	for(int i=0; i<n; i++)
-	{
-		cout << arr[i] << " ";
-	}
-	cout << endl;
-}*/
-
 unordered_map<int, vertex*> create_graph(string s)
 {
 	unordered_map<int, vertex*> adj;
@@ -58,16 +49,6 @@ unordered_map<int, vertex*> create_graph(string s)
 		adj.insert(pair<int, vertex*> (i, head));
 		head = tail = NULL;
 	}
-	/*for(auto it=adj.begin(); it!=adj.end(); it++)
-	{
-		temp = it->second;
-		while(temp!=NULL)
-		{
-			cout << temp->data << " ";
-			temp=temp->next;
-		}
-		cout << endl;
-	}*/
 	return adj;
 }
 
@@ -133,9 +114,6 @@ void DFS(string s, unordered_map<int, vertex*> adj)
 		if(d.flag[i]==0)
 			d = DFS_visit(s, i, adj, d);
 	}
-	/*print(d.flag,d.n);
-	print(d.start, d.n);
-	print(d.end, d.n);*/
 }
 
 int main()
@@ -146,6 +124,8 @@ int main()
 	cout << "Enter vertices in the form of a space terminated string: ";
 	cin >> s;
 	adj = create_graph(s);
+	//uncomment BFS() or DFS() to perform Breadth-First-Search or Depth-First-Search
 	//BFS(s, adj);
-	DFS(s, adj);
+	//DFS(s, adj);
+	return 0;
 }
